@@ -1,0 +1,15 @@
+server:
+  port: 8761
+eureka:
+  client:
+    register-with-eureka: false  #是否要将自己注册到eureka server
+    fetch-registry: false        #是否从eureka server获取注册信息
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+
+
+
+
+#设置eureka server的交互地址,查询服务和注册服务都需要依赖这个地址. 默认是http://localhost:8761/eureka;  多个地址可使用 ","分隔.
+
+#以上 可以 写 serviceUrl 和 service-url 均可以
