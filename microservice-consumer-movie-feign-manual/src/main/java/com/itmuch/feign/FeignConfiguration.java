@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
  * Created by leo on 2017/7/29.
  * Feign的配置类
  */
-@Configuration
+//@Configuration
 public class FeignConfiguration {
 
-    @Bean
+//    @Bean
     public Contract feignContract(){
         return new Contract.Default();
     }

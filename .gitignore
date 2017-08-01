@@ -1,0 +1,11 @@
+microservice-simple-provider-user/target/
+microservice-consumer-movie-feign-manual/target/
+microservice-consumer-movie-feign-customizing/target/
+microservice-simple-provider-user-with-auth/target/
+microservice-simple-provider-user-with-auth/.idea/
+microservice-simple-provider-user/.idea/
+microservice-consumer-movie-feign-manual/.idea/
+microservice-consumer-movie-feign-manual/microservice-consumer-movie-feign-manual.iml
+microservice-simple-provider-user/microservice-provider-user.iml
+microservice-simple-provider-user-with-auth/microservice-provider-user.iml
+microservice-consumer-movie-feign-customizing/.idea/
