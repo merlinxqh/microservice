@@ -32,21 +32,21 @@ public class MovieController {
 
     @Autowired
     public MovieController(Decoder decoder,Encoder encoder,Client client, Contract contract){
-        this.userFeignClient= Feign.builder().client(client).encoder(encoder).decoder(decoder)
+        this.userFeignClient= Feign.builder().client(client).encoder(encoder).decoder(decoder).contract(contract)
                 .requestInterceptor(new BasicAuthRequestInterceptor("user","password1"))
                 .target(UserFeignClient.class,"http://microservice-provider-user");
-        this.adminFeignClient= Feign.builder().client(client).encoder(encoder).decoder(decoder)
+        this.adminFeignClient= Feign.builder().client(client).encoder(encoder).decoder(decoder).contract(contract)
                 .requestInterceptor(new BasicAuthRequestInterceptor("admin","password2"))
                 .target(UserFeignClient.class,"http://microservice-provider-user");
     }
 
     @GetMapping("/user-user/{id}")
-    public User findByIdUser(@PathVariable Long id){
+    public User findByIdUser(@PathVariable("id") Long id){
        return this.userFeignClient.findById(id);
     }
 
     @GetMapping("/user-admin/{id}")
-    public User findByIdAdmin(@PathVariable Long id){
+    public User findByIdAdmin(@PathVariable("id") Long id){
         return this.adminFeignClient.findById(id);
     }
 
