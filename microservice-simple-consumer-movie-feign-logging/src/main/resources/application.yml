@@ -1,0 +1,20 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: microservice-consumer-movie
+
+eureka:
+  client:
+    serviceUrl:
+      deraultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+  instance:
+    prefer-ip-address: true   #将自己的ip注册到eureka server. 如不配置该属性 或将其设置为false, 则表示注册微服务所在操作系统的hostname 到eureka server.
+microservice-provider-user:   #设置负载均衡规则
+  ribbon:
+   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+logging:
+  level:
+    com.itmuch.feign.UserFeignClient: DEBUG #将Feign接口的日志级别设置成DEBUG, 因为Feign的Logger.level只对DEBUG做出响应
+
+

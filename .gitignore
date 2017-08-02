@@ -9,3 +9,6 @@ microservice-consumer-movie-feign-manual/microservice-consumer-movie-feign-manua
 microservice-simple-provider-user/microservice-provider-user.iml
 microservice-simple-provider-user-with-auth/microservice-provider-user.iml
 microservice-consumer-movie-feign-customizing/.idea/
+microservice-simple-consumer-movie-feign-logging/target/
+microservice-consumer-movie-ribbon-hystrix/.idea/
+microservice-simple-consumer-movie-feign-logging/.idea/

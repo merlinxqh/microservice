@@ -16,6 +16,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 /**
  * Created by leo on 2017/7/28.
@@ -31,6 +33,9 @@ public class MovieController {
     private UserFeignClient adminFeignClient;
 
     @Autowired
+    private JedisPool jedisPool;
+
+    @Autowired
     public MovieController(Decoder decoder,Encoder encoder,Client client, Contract contract){
         this.userFeignClient= Feign.builder().client(client).encoder(encoder).decoder(decoder).contract(contract)
                 .requestInterceptor(new BasicAuthRequestInterceptor("user","password1"))
@@ -38,6 +43,13 @@ public class MovieController {
         this.adminFeignClient= Feign.builder().client(client).encoder(encoder).decoder(decoder).contract(contract)
                 .requestInterceptor(new BasicAuthRequestInterceptor("admin","password2"))
                 .target(UserFeignClient.class,"http://microservice-provider-user");
+    }
+
+    @GetMapping("/redis/{val}")
+    public String redis(@PathVariable String val){
+        Jedis jedis=jedisPool.getResource();
+        jedis.set("this_is_key"+val,val);
+        return "success";
     }
 
     @GetMapping("/user-user/{id}")
