@@ -12,3 +12,7 @@ microservice-consumer-movie-feign-customizing/.idea/
 microservice-simple-consumer-movie-feign-logging/target/
 microservice-consumer-movie-ribbon-hystrix/.idea/
 microservice-simple-consumer-movie-feign-logging/.idea/
+microservice-consumer-movie-ribbon-hystrix/target/
+microservice-simple-consumer-movie/.idea/
+microservice-simple-consumer-movie/target/
+*.iml

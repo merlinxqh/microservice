@@ -9,9 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Created by leo on 2017/7/29.
  */
-@FeignClient(name = "microservice-provider-user")
+@FeignClient(name = "microservice-provider-user",
+//        fallback = UserFeignClient.FeignClientFallBack.class
+        fallbackFactory = FeignClientFallBackFactory.class
+)
 public interface UserFeignClient {
 
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public User findById(@PathVariable("id") Long id);
+
 }

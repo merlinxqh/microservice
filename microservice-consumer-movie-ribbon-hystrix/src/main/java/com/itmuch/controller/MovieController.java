@@ -37,21 +37,23 @@ public class MovieController {
     @Autowired
     private UserFeignClient userFeignClient;
 
-    @HystrixCommand(fallbackMethod = "findByIdFallBack",
-            commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "5000"),
-            @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds",value = "10000")})
     @GetMapping("/{id}")
     public User findById(@PathVariable Long id){
         return this.restTemplate.getForObject("http://localhost:8000/"+id,User.class);
     }
 
-    public User findByIdFallBack(){
+    public User findByIdFallBack(Long id){
         User user=new User();
-        user.setId(-1l);
+        user.setId(id);
         user.setName("默认用户");
         return user;
     }
 
+    @HystrixCommand(fallbackMethod = "findByIdFallBack",
+            commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "5000"),
+                    @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds",value = "10000")},
+            threadPoolProperties = {@HystrixProperty(name = "coreSize",value = "1"),
+                    @HystrixProperty(name = "maxQueueSize",value = "10")})
     @GetMapping("/user/{id}")
     public User findUserById(@PathVariable Long id){
         return userFeignClient.findById(id);
