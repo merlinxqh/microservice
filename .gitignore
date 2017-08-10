@@ -16,3 +16,17 @@ microservice-consumer-movie-ribbon-hystrix/target/
 microservice-simple-consumer-movie/.idea/
 microservice-simple-consumer-movie/target/
 *.iml
+microservice-hystrix-turbine-mq/mvnw
+microservice-hystrix-turbine-mq/mvnw.cmd
+microservice-hystrix-turbine-mq/.mvn/
+microservice-consumer-movie-ribbon-hystrix-turbine-mq/.idea/
+microservice-consumer-movie-ribbon-hystrix-turbine-mq/target/
+microservice-hystrix-dashbord/mvnw
+*.cmd
+microservice-consumer-movie-feign-hystrix-fallback-stream/.idea/
+microservice-gateway-zuul/.mvn/
+microservice-hystrix-dashbord/.mvn/
+microservice-gateway-zuul/mvnw
+microservice-consumer-movie-feign-hystrix-fallback-stream/target/
+microservice-hystrix-turbine/.mvn/
+microservice-hystrix-turbine/mvnw

@@ -1,0 +1,17 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: microservice-gateway-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka/
+zuul:
+  ignored-services: microservice-consumer-movie,microservice-provider-user  #忽略指定微服务 '*'忽略所有微服务
+  routes:
+    microservices-providers-user: /user/**  #自定义微服务访问路径
+
+    user-routes: #名称随便起 , 只是一个路由名
+      service-id: microservice-provider-user
+      path: /user/**
