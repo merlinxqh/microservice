@@ -8,10 +8,16 @@ eureka:
     service-url:
       defaultZone: http://peer1:8761/eureka/
 zuul:
-  ignored-services: microservice-consumer-movie,microservice-provider-user  #忽略指定微服务 '*'忽略所有微服务
+  #ignored-services: microservice-consumer-movie,microservice-provider-user  #忽略指定微服务 '*'忽略所有微服务
   routes:
-    microservices-providers-user: /user/**  #自定义微服务访问路径
-
-    user-routes: #名称随便起 , 只是一个路由名
+    #microservice-provider-user: /user/**  #自定义微服务访问路径
+    user-route:  #user-route只是给路由起一个名称,可任意写
       service-id: microservice-provider-user
       path: /user/**
+
+ribbon:
+  eureka:
+    enabled: false
+microservice-provider-user:
+  ribbon:
+    listOfServers: localhost:8000,localhost:8001
