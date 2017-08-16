@@ -30,3 +30,12 @@ microservice-gateway-zuul/mvnw
 microservice-consumer-movie-feign-hystrix-fallback-stream/target/
 microservice-hystrix-turbine/.mvn/
 microservice-hystrix-turbine/mvnw
+node-service/.idea/
+node-service/node_modules/
+node-service/bin/
+microservice-file-upload/.mvn/
+microservice-file-upload/mvnw
+microservice-gateway-zuul-aggregation/.mvn/
+microservice-gateway-zuul-fallback/.mvn/
+microservice-gateway-zuul-filter/.mvn/
+microservice-sidecar/.mvn/

@@ -1,0 +1,14 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: microservice-gateway-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka/
+zuul:
+  routes:
+    user-route:  #user-route只是给路由起一个名称,可任意写
+      service-id: microservice-provider-user
+      path: /user/**
