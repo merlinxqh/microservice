@@ -39,3 +39,8 @@ microservice-gateway-zuul-aggregation/.mvn/
 microservice-gateway-zuul-fallback/.mvn/
 microservice-gateway-zuul-filter/.mvn/
 microservice-sidecar/.mvn/
+microservice-config-client/.mvn/
+microservice-config-client/mvnw
+microservice-config-server/mvnw
+microservice-config-server/.mvn/
+microservice-config-server/.gitignore
